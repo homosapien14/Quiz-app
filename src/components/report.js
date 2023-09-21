@@ -40,7 +40,7 @@ const Report = ({ questions, userAnswers, userName, timeTaken }) => {
   const scorePercentage = ((score / questions.length) * 100).toFixed(2);
 
   return (
-    <div className="bg-white mx-10 text-black shadow-lg rounded-lg p-6 mb-4">
+    <div className="bg-white mx-16 text-black shadow-lg rounded-lg p-6 mb-4">
       <h1 className="text-3xl font-semibold mb-2">Quiz Results</h1>
       <hr/>
       <div className="flex justify-between items-center mb-5 mt-2 border-1.5 rounded-lg shadow-md p-4">
