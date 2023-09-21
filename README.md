@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is Quiz App project build using next.js, react.js and tailwin CSS.
 
-## Getting Started
-
-First, run the development server:
-
+## To run locally: 
+1. install dependancies
+```
+npm install 
+```
+2. run server
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+1. Landing Page:
+As per the problem statement , I have designed and implemented this page. 
+![image](https://github.com/homosapien14/Quiz-app/assets/76989674/fc2c651f-12d4-4167-807e-d454ba1fd8a4)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. I have created the user-friendly overview Panel to navigate between the questions:
+![image](https://github.com/homosapien14/Quiz-app/assets/76989674/6458af1e-9b8c-4947-a5e0-249119049a1e)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. indicators get to know whether question is attempted or not:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![image](https://github.com/homosapien14/Quiz-app/assets/76989674/611ef23c-c6c0-4f74-a231-a1b7be62aa74)
 
-## Learn More
+5. Designed and implemented user-friendly and cool quiz report to know everything about the result:
+![image](https://github.com/homosapien14/Quiz-app/assets/76989674/f0b88b16-0222-420d-ab95-95a3ab1e75dd)
 
-To learn more about Next.js, take a look at the following resources:
+I was low on time because I saw the assignment mail on last night of submission, so could not able to implement the state management (using react redux), oauth (passport.js). I will complete this as soon as possible.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
