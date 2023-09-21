@@ -24,6 +24,8 @@ As per the problem statement , I have designed and implemented this page.
 
 5. Designed and implemented user-friendly and cool quiz report to know everything about the result:
 ![image](https://github.com/homosapien14/Quiz-app/assets/76989674/f0b88b16-0222-420d-ab95-95a3ab1e75dd)
+![image](https://github.com/homosapien14/Quiz-app/assets/76989674/7c77b3e6-9d0f-47d0-90d9-2964ede4e6f5)
+
 
 I was low on time because I saw the assignment mail on last night of submission, so could not able to implement the state management (using react redux), oauth (passport.js). I will complete this as soon as possible.
 
