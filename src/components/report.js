@@ -1,4 +1,4 @@
-import { displayTime } from "@/utils/helper";
+import { displayTime ,checkAnswers} from "@/utils/helper";
 import React, { useState, useEffect } from "react";
 import {
   FaThumbsUp,
@@ -8,27 +8,30 @@ import {
   FaClock,
   FaCalendar,
 } from "react-icons/fa";
+const API_URL = 'https://opentdb.com/api.php?amount=15';
 
-export const Report = ({ questions, userAnswers, userName, timeTaken }) => {
+export const Report = ({  userAnswers, userName, timeTaken }) => {
   const [score, setScore] = useState(0);
+  const [questionsWithAnswer, setQuestionsWithAnswer] = useState([]);
+  const [scorePercentage, setScorePercentages] =useState('-');
   useEffect(() => {
-    let count = 0;
-    userAnswers.forEach((userAnswer, index) => {
-      if (userAnswer === questions[index].correct_answer) {
-        count++;
-      }
-    });
-    setScore(count);
-  });
+    const checkScore = async()=>{
+      const {score,questionsWithAnswers,scorePercentage} = await checkAnswers(API_URL,userAnswers);
+      setScore(score);
+      setQuestionsWithAnswer(questionsWithAnswers);
+      setScorePercentages(scorePercentage);
+    }
+    checkScore();
+  },[]);
   const check = (userAnswer,index)=>{
-    if(userAnswer === questions[index].correct_answer) {
+    if( userAnswer && userAnswer === questionsWithAnswer[index].correct_answer) {
       return 'bg-green-500';
     }
     else{
       return 'bg-red-500';
     }
   }
-  console.log(timeTaken)
+  console.log(questionsWithAnswer);
   const passOrFail = score > 7 ? "Pass" : "Fail";
   const thumbsIcon =
     score > 7 ? (
@@ -36,7 +39,6 @@ export const Report = ({ questions, userAnswers, userName, timeTaken }) => {
     ) : (
       <FaThumbsDown className="text-red-500 text-4xl" />
     );
-  const scorePercentage = ((score / questions.length) * 100).toFixed(2);
 
   return (
     <div className="bg-white mx-16 text-black shadow-lg rounded-lg p-6 mb-4">
@@ -87,7 +89,7 @@ export const Report = ({ questions, userAnswers, userName, timeTaken }) => {
           <div className="flex justify-between items-center mb-2">
             <span className="text-lg font-semibold">Questions</span>
           </div>
-          {questions.map((question, index) => (
+          {questionsWithAnswer.map((question, index) => (
             <details
               key={index}
               className="flex w-full border-2 shadow rounder-lg p-4 mx-auto justify-around mb-2"
@@ -102,8 +104,8 @@ export const Report = ({ questions, userAnswers, userName, timeTaken }) => {
                     <span className="text-gray-600 font-semibold">
                       User Answer:
                     </span>
-                    <span className={ `ml-2 ${check(question.userAnswer,index)} p-2 rounded-xl text-white`}>
-                      {question.userAnswer || "Not Answered"}
+                    <span className={ `ml-2 ${check(userAnswers[index],index)} p-2 rounded-xl text-white`}>
+                      {userAnswers[index] || "Not Answered"}
                     </span>
                   </div>
                   <div>

@@ -51,7 +51,7 @@ export const Quiz = ({
     <div className="w-full max-w-md border-2 rounded-md p-5 mx-auto">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">
-          Question {currentQuestion + 1} of {questions.length}
+          Question {currentQuestion + 1} of {questions?.length}
         </h2>
         <div className="text-red-500">{displayTime(timeLeft)} left</div>
       </div>

@@ -6,18 +6,42 @@ export const displayTime = (timeLeft) => {
 
 export const fetchQuestions = async (API_URL) => {
   try {
-    const response = await fetch(API_URL);
-    const data = await response.json();
-    const formattedQuestions = data.results.map((q) => {
-      return {
-        question: q.question,
-        choices: [...q.incorrect_answers, q.correct_answer],
-        correct_answer: q.correct_answer,
-      };
+    const data = {
+      API_URL: API_URL
+    }
+    const response = await fetch('http://127.0.0.1:8081/getQuestions', {
+      method: "POST",  
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data), 
     });
-    return formattedQuestions;
+    const questions = await response.json();
+    return questions;
     
   } catch (error) {
     console.error("Error fetching questions:", error);
   }
 };
+
+export const checkAnswers = async (API_URL,userAnswers)=>{
+  try {
+    const data = {
+      API_URL:API_URL,
+      userAnswers:userAnswers
+    }
+    const response = await fetch('http://127.0.0.1:8081/checkAnswers', {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data), 
+    });
+    const result = await response.json();
+    console.log(result);
+    return result;
+    
+  } catch (error) {
+    console.error("Error fetching questions:", error);
+  }
+}
