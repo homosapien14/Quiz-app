@@ -1,5 +1,9 @@
 This is Quiz App project build using next.js, react.js and tailwin CSS.
 
+Connected with backend (Github repo: https://github.com/homosapien14/Quiz-app-Backend)
+- Purpose of building this backend is that , currently I was calling question's API from client side component due which users can see response with all correct answers.
+and to solve this , I call this API on backend side and control the response data.
+
 ## To run locally: 
 1. install dependancies
 ```
