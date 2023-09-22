@@ -9,7 +9,7 @@ export const fetchQuestions = async (API_URL) => {
     const data = {
       API_URL: API_URL
     }
-    const response = await fetch('http://127.0.0.1:8081/getQuestions', {
+    const response = await fetch('https://quiz-app-45o7.onrender.com/getQuestions', {
       method: "POST",  
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const checkAnswers = async (API_URL,userAnswers)=>{
       API_URL:API_URL,
       userAnswers:userAnswers
     }
-    const response = await fetch('http://127.0.0.1:8081/checkAnswers', {
+    const response = await fetch('https://quiz-app-45o7.onrender.com/checkAnswers', {
       method: "POST", 
       headers: {
         "Content-Type": "application/json",
