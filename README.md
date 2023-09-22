@@ -1,3 +1,4 @@
+# Quiz App
 This is Quiz App project build using next.js, react.js and tailwin CSS.
 
 Connected with backend (Github repo: https://github.com/homosapien14/Quiz-app-Backend)
