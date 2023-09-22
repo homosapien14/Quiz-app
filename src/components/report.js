@@ -79,7 +79,7 @@ export const Report = ({ questions, userAnswers, userName, timeTaken }) => {
           <div className="rounded-full border-2 border-blue-500 text-blue-500 p-3 text-center">
             <span className="text-2xl">60%</span>
           </div>
-          <span className="ml-2 text-lg font-semibold">Score Percentage</span>
+          <span className="ml-2 text-lg font-semibold">Average Percentage</span>
           </div>
         </div>
       <div className="grid grid-cols-2 gap-4 mb-4">
