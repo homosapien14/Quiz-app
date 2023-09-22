@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from "react";
 
-const StartPage = ({ startQuiz }) => {
+export const StartPage = ({ startQuiz }) => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
@@ -41,4 +41,3 @@ const StartPage = ({ startQuiz }) => {
   );
 };
 
-export default StartPage;

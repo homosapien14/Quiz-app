@@ -1,4 +1,3 @@
-'use client';
 import { displayTime } from "@/utils/helper";
 import React, { useState, useEffect } from "react";
 import {
@@ -10,7 +9,7 @@ import {
   FaCalendar,
 } from "react-icons/fa";
 
-const Report = ({ questions, userAnswers, userName, timeTaken }) => {
+export const Report = ({ questions, userAnswers, userName, timeTaken }) => {
   const [score, setScore] = useState(0);
   useEffect(() => {
     let count = 0;
@@ -123,4 +122,4 @@ const Report = ({ questions, userAnswers, userName, timeTaken }) => {
   );
 };
 
-export default Report;
+

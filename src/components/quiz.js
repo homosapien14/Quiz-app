@@ -1,7 +1,7 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import { displayTime } from "@/utils/helper";
-const Quiz = ({
+
+export const Quiz = ({
   questions,
   onQuizEnd,
   currentQuestion,
@@ -107,5 +107,3 @@ const Quiz = ({
     </div>
   );
 };
-
-export default Quiz;

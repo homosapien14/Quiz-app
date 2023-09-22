@@ -1,9 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import StartPage from "@/components/startPage";
-import Quiz from "@/components/quiz";
-import OverviewPanel from "@/components/overviewPanel";
-import Report from "@/components/report";
+import { StartPage, Report, OverviewPanel, Quiz } from "@/components/index";
+import { fetchQuestions } from "@/utils/helper";
 
 const API_URL = "https://opentdb.com/api.php?amount=15";
 
@@ -14,27 +12,14 @@ const IndexPage = () => {
   const [quizEnded, setQuizEnded] = useState(false);
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [timeLeft,setTimeLeft] = useState(1800);
-
-  const fetchQuestions = async () => {
-    try {
-      const response = await fetch(API_URL);
-      const data = await response.json();
-      const formattedQuestions = data.results.map((q) => {
-        return {
-          question: q.question,
-          choices: [...q.incorrect_answers, q.correct_answer],
-          correct_answer: q.correct_answer,
-        };
-      });
-      setQuestions(formattedQuestions);
-    } catch (error) {
-      console.error("Error fetching questions:", error);
-    }
-  };
+  const [timeLeft, setTimeLeft] = useState(1800);
 
   useEffect(() => {
-    fetchQuestions();
+    const getData = async () => {
+      const data = await fetchQuestions(API_URL);
+      setQuestions(data);
+    };
+    getData();
   }, []);
 
   const handleCurrentQuestion = (newQuestionIndex) => {
@@ -52,7 +37,7 @@ const IndexPage = () => {
     setUserAnswers(updatedAnswers);
   };
 
-  const endQuiz = (answers,timeLeft) => {
+  const endQuiz = (answers, timeLeft) => {
     handleUserAnswers(answers);
     setQuizEnded(true);
     setTimeLeft(timeLeft);

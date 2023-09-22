@@ -1,4 +1,4 @@
-const OverviewPanel = ({
+export const OverviewPanel = ({
   questions,
   userAnswers,
   currentQuestion,
@@ -40,4 +40,3 @@ const OverviewPanel = ({
   );
 };
 
-export default OverviewPanel;
